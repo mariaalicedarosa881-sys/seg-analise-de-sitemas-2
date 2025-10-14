@@ -1,0 +1,108 @@
+EMPRESA DE ASSISTÊNCIA TÉCNICA
+NOME DA EMPRESA: Central Tech
+INTEGRANTES DO GRUPO: Maria Alice,Julie,Karen e João Pedro
+
+1. OBJETIVO DO SISTEMA
+*criar um programa que mantenha o cadastro dos clientes com todos os seus dados.
+
+2. REQUISITOS FUNCIONAIS
+*Cadastro de clientes com dados completos.
+*Gerenciamento de serviços e assitência técnica prestados
+*Vendas de produtos
+*Cadastro de produtos do cliente(ex: celular, notebook, etc) e acessórios.
+*controle de estoque
+*Geração de relatórios
+*Vendas e compras online
+*Exibição da logo da loja no sistema
+*Cadastro e controle de fornecedores.
+*Emissão de vaucher de desconto em aniversários dos clientes
+*Coleta de feedback dos clientes
+*Integração de redes sociais para a divulgação da empresa
+
+*BANCO DE DADOS
+3 TABELA CLIENTES:
+-CPF(CHAVE PRIMÁRIA)
+-NOME
+-TELEFONE 
+-DATA DE NASCIMENTO
+
+*PRODUTOS
+-NOME
+-QUANTIDADE
+-FORNECEDOR(CHAVE EXTRANGEIRA)
+-TIPO DE PRODUTOS 
+-CÓDIGO DE BARRAS(CHAVE PRIMÁRIA)
+
+*SERVIÇOS
+-TIPOS DE SERVIÇOS
+-PREÇO DO SERVIÇO
+-ID DO SERVIÇO(CHAVE PRIMÁRIA)
+-DESCRIÇÃO DO SERVIÇO
+
+*FORNECEDORES
+-NOME
+-TELEFONE
+-CNPJ(CHAVE PRIMÁRIA)
+-PRODUTO FORNECIDO
+
+*VENDAS
+-QUANTIDADE
+-VALOR DO PRODUTO
+-CÓDIGO DE BARRAS
+
+INSTRUÇÕES SQL
+*BASE
+TABELA CLIENTES:
+CREATE TABLE "CLIENTES" (
+	"cpf_"	INTEGER NOT NULL UNIQUE,
+	"nome "	TEXT NOT NULL,
+	"telefone"	INTEGER NOT NULL,
+	"data de nascimento"	DATE NOT NULL,
+	PRIMARY KEY("cpf_")
+);
+
+TABELA FORNECEDORES
+CREATE TABLE "FORNECEDORES" (
+	"NOME"	TEXT NOT NULL,
+	"TELEFONE"	INTEGER NOT NULL,
+	"CNPJ"	INTEGER NOT NULL UNIQUE,
+	"PRODUTO "	TEXT NOT NULL,
+	PRIMARY KEY("CNPJ")
+);
+
+TABELA PRODUTO
+CREATE TABLE "PRODUTOS" (
+	"NOME PRODUTO"	TEXT NOT NULL,
+	"ESTOQUE"	INTEGER NOT NULL,
+	"TIPO  DE PRODUTO"	TEXT NOT NULL,
+	"COD BARRAS"	INTEGER NOT NULL,
+	PRIMARY KEY("COD BARRAS")
+);
+
+TABELA SERVIÇOS
+CREATE TABLE "SERVIÇOS" (
+	"TIPO SERVICO"	TEXT NOT NULL,
+	"PRECO SERVICO"	FLOAT NOT NULL,
+	"ID SERVICO"	INTEGER NOT NULL,
+	"DESCRICAO SERVICO"	TEXT NOT NULL,
+	PRIMARY KEY("ID SERVICO")
+);
+
+TABELA VENDAS
+CREATE TABLE "VENDAS" (
+	"QUANTIDADE PRODUTO"	INTEGER NOT NULL,
+	"VALOR PRODUTO"	FLOAT NOT NULL,
+	"COD BARRAS"	FOREIGN KEY NOT NULL,
+	"CPF CLIENTE"	FOREIGN KEY NOT NULL UNIQUE
+);
+
+     CRUD
+INSERT INTO "clientes" ("cpf_cliente","nome_cliente","telefone_cliente","data_de_nascimento")
+VALUES ("05789114752","carlos","789995485","15/09/2005");
+
+SELLECT * FROM "CLIENTES" LIKE "%ANA%";
+
+UPDATE "clientes" SET "nome_cliente"= "Raissa"
+WHERE "cpf_cliente"="89712345";
+
+DELETE FROM "CLIENTES" WHERE "CPF_CLIENTES"="1984125";
