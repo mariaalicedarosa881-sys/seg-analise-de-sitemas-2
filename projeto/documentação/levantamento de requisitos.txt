@@ -1,6 +1,6 @@
 EMPRESA DE ASSISTÊNCIA TÉCNICA
 NOME DA EMPRESA: Central Tech
-INTEGRANTES DO GRUPO: Maria Alice,Julie,Karen e João Pedro
+INTEGRANTES DO GRUPO: Maria Alice,João Pedro,Julie,Karen.
 
 1. OBJETIVO DO SISTEMA
 *criar um programa que mantenha o cadastro dos clientes com todos os seus dados.
